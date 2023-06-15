@@ -5,7 +5,7 @@ require "./controller/controller.php";
 try {
     $action = $_GET['action'] ?? "";
     switch ($action) {
-        case "something else":
+        case "DFGHDFGDFSH DGHDGFH DF":
             // do something;
             break;
         default:
