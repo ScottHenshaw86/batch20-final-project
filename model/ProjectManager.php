@@ -36,34 +36,6 @@ class ProjectManager extends Manager
                 unset($projects[$project_id]->language_name);
             }
         }
-        return $projects;
-
-        ------
-        
-
-        $projects = [];
-        while ($data = $res->fetch()) {
-            $project_id = $data->id;
-            if (isset($projects[$project_id])) {
-                $projects[$project_id]->languages[] = $data->language_name;
-            } else {
-                $projects[$project_id] = $data;
-                $projects[$project_id]->languages = [];
-                $projects[$project_id]->languages[] = $data->language_name;
-
-                
-
-                // $sumsQuery = $db->prepare("SELECT SUM(stat) AS sum_stat FROM project_votes WHERE project_id = :project_id");
-                // $sumsQuery->bindParam("project_id", $project_id, PDO::PARAM_INT);
-                // $sumsQuery->execute();
-                // $sum = $sumsQuery->fetch()->sum_stat;
-                // $projects[$project_id]->sum = $sum;
-
-                unset($projects[$project_id]->language_name);
-            }
-        }
-        return $projects;
-
     }
 
     public function getUserProjects($user_id)
