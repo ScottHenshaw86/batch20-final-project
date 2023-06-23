@@ -36,6 +36,7 @@ class ProjectManager extends Manager
                 unset($projects[$project_id]->language_name);
             }
         }
+        return $projects;
     }
 
     public function getUserProjects($user_id)
