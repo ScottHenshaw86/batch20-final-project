@@ -21,4 +21,5 @@
         </div>
 
     </div>
+    <?php include "projectVotes.php" ?>
 </div>
