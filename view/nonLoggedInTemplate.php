@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <title><?= $title; ?></title>
     <link href="./public/css/main.css" rel="stylesheet" />
-    <link href="./public/css/userProfile.css" rel="stylesheet" />
     <script defer src="https://kit.fontawesome.com/808c973e0c.js" crossorigin="anonymous"></script>
     <script src="./public/js/nyan.js"></script>
 

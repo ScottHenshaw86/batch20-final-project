@@ -65,7 +65,7 @@ try {
             break;
 
             // CREATING A NEW USER 
-        case "createUser":
+        case "createUser": // add new user to database
             $username = $_POST['username'] ?? "";
             $email = $_POST['email'] ?? "";
             $password = $_POST['password'] ?? "";
@@ -77,7 +77,7 @@ try {
                 createUser($username, $email, $password, $password_confirm);
             } else {
                 // throw new Exception("Couldn't create your account, missing required information.");
-                // TODO: NEEDS TO GO BACK TO SIGN UP PAGE WITH ERROR MESSAGE
+                // TODO: NEEDS TO GO BACK TO SIGN UP PAGE WITH ERROR MESSAGE (maybe set action=add_user?)
                 $message = urlencode("Sign up failed");
                 header("Location: index.php?action=signInForm&error=true&message=$message");
             }
@@ -91,8 +91,8 @@ try {
             if (!$_SESSION['id']) {
                 throw new Exception("Missing user id");
             }
-            echo "<pre>";
-            print_r($_POST);
+            // echo "<pre>";
+            // print_r($_POST);
             $gif = $_POST['gif'] ?? "";
             $title = $_POST['title'] ?? "";
             $description = $_POST['description'] ?? "";
@@ -112,10 +112,12 @@ try {
             break;
 
         case "logIn":
-            $username = $_POST['username'] ?? "";
-            $password = $_POST['password'] ?? "";
+            $username = $_POST['username'];
+            $password = $_POST['password'];
             if ($username and $password) {
                 logIn($username, $password);
+            } else {
+                // do front-end validation + back-end validation
             }
             break;
 
@@ -127,25 +129,24 @@ try {
 
             // FOR EDITING A USER
         case "editUser":
-            $id = $_SESSION['id'];
-            $username = $_SESSION['username'];
-            $email = $_SESSION['email'];
-            if ($id and $username and $email) {
-                editUser($id, $username, $email);
+            if (isset($_GET['id'])) {
+                editUser($_GET['id']);
+            } else {
+                throw new Exception("The data is missing");
+            }
+            break;
+
+        case "personal_info":
+            if (isset($_GET['id'])) {
+                personalInfo($_GET['id']);
             } else {
                 throw new Exception("The data is missing");
             }
             break;
 
             // EDITING THE USER
-
-        case "submitEditedUser":
+        case "submitEditedProfile":
             $id = $_POST['id'] ?? "";
-            $first_name = $_POST['firstName'] ?? "";
-            $last_name = $_POST['lastName'] ?? "";
-            $username = $_POST['username'] ?? "";
-            $email = $_POST['email'] ?? "";
-            $password = $_POST['password'] ?? "";
             $profile_image = $_POST['profileImage'] ?? "";
             $bio = $_POST['bio'] ?? "";
             $linked_in = $_POST['linkedIn'] ?? "";
@@ -153,24 +154,14 @@ try {
             if (
                 // 'OR' IS USED SO THAT A USER CAN EDIT ANY PIECE OF 
                 // INFORMATION THEY WANT
-                $id or
-                $first_name or
-                $last_name or
-                $username or
-                $email or
-                $password or
+                $id and
                 $profile_image or
                 $bio or
                 $linked_in or
                 $git_hub
             ) {
-                submitEditedUser(
+                submitEditedProfile(
                     $id,
-                    $first_name,
-                    $last_name,
-                    $username,
-                    $email,
-                    $password,
                     $profile_image,
                     $bio,
                     $linked_in,
@@ -178,6 +169,44 @@ try {
                 );
             }
             break;
+
+        case "submitPersonalInfo":
+            $id = $_POST['id'] ?? "";
+            $first_name = $_POST['firstName'] ?? "";
+            $last_name = $_POST['lastName'] ?? "";
+            $username = $_POST['username'] ?? "";
+            $email = $_POST['email'] ?? "";
+            if (
+                // 'OR' IS USED SO THAT A USER CAN EDIT ANY PIECE OF 
+                // INFORMATION THEY WANT
+                $id and
+                $first_name or
+                $last_name or
+                $username or
+                $email
+            ) {
+                submitPersonalInfo(
+                    $id,
+                    $first_name,
+                    $last_name,
+                    $username,
+                    $email
+                );
+            }
+            break;
+
+        case "change_password":
+            if ($_GET['id']) {
+                changePassword($_GET['id']);
+            }
+            break;
+
+        case "submitChangePassword":
+            if ($_POST['password'] and $_POST['id']) {
+                submitChangePassword($_POST['id'], $_POST['password']);
+            }
+            break;
+
         case "getProjectVotes":
             // grab the status, project_id, and user_id from the GET parameters
             if (
@@ -194,8 +223,14 @@ try {
             }
             break;
 
-
-
+        case "fullProjectPage":
+            // when you click on a project, it should bring you here
+            // with a GET parameter with the project id
+            $project_id = $_GET['project_id'] ?? "";
+            if ($project_id) {
+                displayFullProject($project_id);
+            };
+            break;
 
         default:
             displayCards();

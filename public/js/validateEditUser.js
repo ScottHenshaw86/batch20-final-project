@@ -79,7 +79,7 @@ if (lastName) {
 const userNameEdit = document.querySelector("#usernameEdit");
 if (userNameEdit) {
 	// VALIDATING THE USERNAME INPUT (EDIT)
-	function checkUsername(useEdit) {
+	function checkUsername(userNameEdit) {
 		if (userNameEdit.value === "") {
 			userNameEdit.className = "red";
 			usernameMissing.style.display = "inline";
@@ -107,7 +107,7 @@ if (userNameEdit) {
 	});
 
 	userNameEdit.addEventListener("blur", function () {
-		if (userName.value.length == 0 || userNameEdit.value) {
+		if (userNameEdit.value.length == 0 || userNameEdit.value) {
 			userNameEdit.className = "";
 			usernameNotValid.style.display = "none";
 			usernameMissing.style.display = "none";
@@ -188,4 +188,15 @@ if (passwordEdit) {
 			passwordMissing.style.display = "none";
 		}
 	});
+}
+
+function checkInputs(e) {
+	// let valid = checkPassword(passwordEdit);
+	if (!checkPassword(passwordEdit)) {
+		e.preventDefault();
+		checkPassword();
+	}
+}
+if (changePassword) {
+	changePassword.addEventListener("submit", checkInputs);
 }

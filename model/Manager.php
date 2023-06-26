@@ -4,7 +4,7 @@ class Manager
 {
     protected function dbConnect()
     {
-        // NOTE: set this to false to use local (phpmyadmin) database
+        // NOTE: set this to false to use local database
         $USE_PLANETSCALE = false;
 
         if ($USE_PLANETSCALE) {

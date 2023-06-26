@@ -6,37 +6,30 @@ ob_start();
 <!-- TODO: do we want to include this header? -->
 <?php include "./view/component/loggedInHeader.php" ?>
 <main>
-    <!-- <section class="user-profile-view-info"> -->
-    <!-- <?php if (isset($_SESSION['id'])) { ?>
-            <a href="index.php?action=editUser">Edit Profile</a>
-        <?php
-            } ?> -->
+
 
     <!-- </section> -->
     <section class="user-profile-view">
         <aside class="user-profile-info">
-
-
-            <div id='profile-img' class=<?= $user_color ?>>
-
-                <img id=<?= $user_color ?> src="<?= $profiles->profile_img ?>" alt="the photo of <?= $profiles->username; ?>">
-
+            <div id='profile-img'>
+                <img src="<?= $userInfo->profile_img ?>" alt="the photo of <?= $userInfo->username; ?>">
             </div>
             <div>
-                <h1 id='profile-name'><?= "$profiles->first_name $profiles->last_name"; ?></h1>
-                <h1 id='profile-username'><?= $profiles->username; ?></h1>
+                <h1 id='profile-name'><?= "$userInfo->first_name $userInfo->last_name"; ?></h1>
+                <h1 id='profile-username'><?= $userInfo->username; ?></h1>
             </div>
 
 
             <div class="user-profile-bio">
-                <p><?= $profiles->bio ?></p>
+                <p><?= $userInfo->bio ?></p>
                 <span class="user-language-tag">
                     <?php
+                    echo "<span id='languages'>Languages: </span>";
                     if (count($projects)) {
-                        echo "<span id='languages'>Languages: </span>";
-                        foreach ($profiles->languages as $language) {
-                            echo "$language ";
-                        }
+                        $languages = join(", ", $userLanguages);
+                        echo $languages;
+                    } else {
+                        echo "<i class='default'>none</i>";
                     }
                     ?>
                 </span>
@@ -48,7 +41,7 @@ ob_start();
             to style :) -->
             <!-- <span class="user-language-tag"> <?php
                                                     if (count($projects))
-                                                        foreach ($profiles->languages as $language) {
+                                                        foreach ($userInfo->languages as $language) {
                                                             echo "$language ";
                                                         } ?></span> -->
             <!-- </div> -->
@@ -56,17 +49,20 @@ ob_start();
                 <h1 id='links-title'>Social Links: </h1>
                 <div class="links">
                     <p class="social-link">
-                        <a href="<?= $profiles->gitHub; ?>"><i class="fa-brands fa-2xl fa-github" style="color: #d2c3ee;"></i></a>
+                        <a href="<?= $userInfo->gitHub; ?>"><i class="fa-brands fa-2xl fa-github" style="color: #d2c3ee;"></i></a>
                     </p>
                     <p class="social-link">
-                        <a href="<?= $profiles->linkedIn; ?>"><i class="fa-brands fa-2xl fa-linkedin" style="color: #d2c3ee;"></i></a>
+                        <a href="<?= $userInfo->linkedIn; ?>"><i class="fa-brands fa-2xl fa-linkedin" style="color: #d2c3ee;"></i></a>
                     </p>
                 </div>
 
             </div>
 
-            <?php if (isset($_SESSION) and $_SESSION['username'] === $profiles->username) { ?>
+            <!-- FOR DISPLAYING THE 'ADD PROJECT' ONLY WHEN 'MY PROJECT' IS CLICKED -->
+            <?php if (isset($_SESSION['id']) and isset($_GET['id']) and $_SESSION['id'] == $_GET['id']) { ?>
                 <button><a href="index.php?action=add_project">Add a Project</a></button>
+                <button><a href="index.php?action=personal_info&id=<?= $_GET['id'] ?>">Edit Personal Information</a></button>
+                <button><a href="index.php?action=change_password&id=<?= $_SESSION['id'] ?>">Change Password</a></button>
             <?php } ?>
 
         </aside>
@@ -74,8 +70,12 @@ ob_start();
             <h1>Projects: </h1>
             <div class="projects">
                 <?php
-                foreach ($projects as $project) {
-                    include "./view/component/projectCard.php";
+                if (count($projects)) {
+                    foreach ($projects as $project) {
+                        include "./view/component/projectCard.php";
+                    }
+                } else {
+                    echo "<i class='default'>No Projects</i>";
                 }
                 ?>
             </div>
@@ -87,11 +87,4 @@ ob_start();
 <?php
 $content = ob_get_clean();
 require "template.php";
-// if (isset($_SESSION['user_id'])) {
-//     require "loggedInTemplate.php";
-// } else {
-//     require "nonLoggedInTemplate.php";
-// }
 ?>
-
-<script defer src="./public/js/projectVotes.js"></script>

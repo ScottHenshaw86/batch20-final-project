@@ -21,6 +21,29 @@ class UserManager extends Manager
         $req->bindParam("image_url", $image_url, PDO::PARAM_STR);
         $req->execute();
     }
+    //HANDLING USER ERROR: MULTIPLE USERNAMES AND EMAILS
+    public function userExists($username)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare("SELECT COUNT(username) as count FROM user WHERE username = ?");
+        $req->execute([$username]);
+
+
+        return $req->fetch();
+    }
+
+    public function emailExists($email)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare("SELECT COUNT(email) as count FROM user WHERE email = ?");
+        $req->execute([$email]);
+
+
+        return $req->fetch();
+    }
+
     // INSERT NEW PROJECT
     public function insertNewProject($user_id, $gif, $title, $description, $tags, $languages)
     {
@@ -79,27 +102,22 @@ class UserManager extends Manager
         };
     }
 
-    public function logIn($username, $password)
+    public function logIn($username)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("SELECT id, username, password, email FROM user WHERE username = :username");
+        $req = $db->prepare("SELECT profile_img, id, username, password, email FROM user WHERE username = :username");
         $req->execute([
             "username" => $username
         ]);
 
         $result = $req->fetch();
-        // $array = [$result->id, $result->username, $result->email, $result->password];
+        // $array = [$result->id, $result->username, $result->email, $result->password, $result->profile_img];
         return $result;
     }
 
     // EDITING A USER
-    public function submitEditedUser(
+    public function submitEditedProfile(
         $id,
-        $first_name,
-        $last_name,
-        $username,
-        $email,
-        $password,
         $profile_image,
         $bio,
         $linked_in,
@@ -107,28 +125,52 @@ class UserManager extends Manager
     ) {
         $db = $this->dbConnect();
         $req = $db->prepare("UPDATE user 
-                             SET first_name = :first_name, 
-                                 last_name = :last_name, 
-                                 username = :username,
-                                 email = :email,
-                                 password = :password,
+                             SET 
                                  profile_img = :profile_img,
                                  bio = :bio,
                                  linkedIn = :linkedIn,
                                  gitHub = :gitHub   
                              WHERE id = :id");
         $req->bindParam("id", $id, PDO::PARAM_INT);
-        $req->bindParam("first_name", $first_name, PDO::PARAM_STR);
-        $req->bindParam("last_name", $last_name, PDO::PARAM_STR);
-        $req->bindParam("username", $username, PDO::PARAM_STR);
-        $req->bindParam("email", $email, PDO::PARAM_STR);
-        $req->bindParam("password", password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
         $req->bindParam("profile_img", $profile_image, PDO::PARAM_STR);
         $req->bindParam("bio", $bio, PDO::PARAM_STR);
         $req->bindParam("linkedIn", $linked_in, PDO::PARAM_STR);
         $req->bindParam("gitHub", $git_hub, PDO::PARAM_STR);
         $req->execute();
         $_SESSION['profile_img'] = $profile_image;
+    }
+
+    public function submitPersonalInfo(
+        $id,
+        $first_name,
+        $last_name,
+        $username,
+        $email
+    ) {
+        $db = $this->dbConnect();
+        $req = $db->prepare("UPDATE user 
+                             SET first_name = :first_name,
+                                 last_name = :last_name,
+                                 username = :username,
+                                 email = :email
+                             WHERE id = :id");
+        $req->bindParam("id", $id, PDO::PARAM_INT);
+        $req->bindParam("first_name", $first_name, PDO::PARAM_STR);
+        $req->bindParam("last_name", $last_name, PDO::PARAM_STR);
+        $req->bindParam("username", $username, PDO::PARAM_STR);
+        $req->bindParam("email", $email, PDO::PARAM_STR);
+        $req->execute();
+    }
+
+    public function submitChangePassword($id, $password)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare("UPDATE user 
+                             SET password = :password
+                             WHERE id = :id");
+        $req->bindParam("id", $id, PDO::PARAM_INT);
+        $req->bindParam("password", password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $req->execute();
     }
 
     // 'deactivate' project with 'project_id' (set is_active = false)
@@ -149,6 +191,7 @@ class UserManager extends Manager
             "SELECT p.gif, p.description, p.title, p.id
             FROM project p
             WHERE id = ?"
+
         );
 
         $req->execute([$project_id]);
@@ -292,7 +335,6 @@ class UserManager extends Manager
         }
     }
 
-
     // TODO: check how to use $_POST['id'] so that it will grab the information for the user
     public function getUserInfoProjects($user_id)
     {
@@ -308,7 +350,6 @@ class UserManager extends Manager
             INNER JOIN language l
             ON plm.language_id = l.id
             WHERE u.id = ?";
-
 
         $res = $db->prepare($sql);
 
@@ -335,9 +376,35 @@ class UserManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->prepare("SELECT first_name, last_name, username, profile_img, bio, gitHub, linkedIn FROM user WHERE id = ? ");
+        $req = $db->prepare("SELECT * FROM user WHERE id = ? ");
         $req->execute([$user_id]);
 
         return $req->fetch();
+    }
+
+
+    public function getUserLanguages($user_id)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare("SELECT DISTINCT(l.language_name)
+        FROM user u
+        INNER JOIN project p
+        ON u.id = p.user_id
+        INNER JOIN project_language_map plm
+        ON p.id = plm.project_id
+        INNER JOIN language l
+        ON plm.language_id = l.id
+        WHERE u.id = ?
+        ");
+
+        $req->execute([$user_id]);
+
+        $userLanguages = [];
+        while ($language = $req->fetch()) {
+            array_push($userLanguages, $language->language_name);
+        }
+
+        return $userLanguages;
     }
 }

@@ -32,23 +32,24 @@ if (isset($_SESSION['id'])) {
       }
     }
     ?>
+
+    <!-- SHOW MORE FOR LIMITS -->
+    <a href="index.php?limit=<?= $limit ?>">show more</a>
   </div>
 
 
 
 
-<!-- </div> -->
-<script defer src="./public/js/projectVotes.js"></script>
-<?php
-$content = ob_get_clean();
+  <!-- </div> -->
+  <script defer src="./public/js/projectVotes.js"></script>
+  <?php
+  $content = ob_get_clean();
 
 
-if (isset($_SESSION['id'])) {
-  require "loggedInTemplate.php";
-} else {
-  require "nonLoggedInTemplate.php";
-}
+  if (isset($_SESSION['id'])) {
+    require "loggedInTemplate.php";
+  } else {
+    require "nonLoggedInTemplate.php";
+  }
 
-
-
-?>
+  ?>

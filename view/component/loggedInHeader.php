@@ -14,7 +14,7 @@
             <input class="search-bar" type="search" name="" id="" placeholder="Search">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <img class="user-profile-pic" src="<?= $_SESSION['profile_img'] ?>" alt="User Profile Picture">
+        <img class="user-profile-pic" src="<?= $_SESSION['profile_img'] ?>">
         <!-- TODO:users can click on profile pic to take them to their profile -->
         <div>
 
@@ -24,7 +24,7 @@
 
             <!-- MAKING CONNECTION TO MY PROFILE  -->
             <?php if (isset($_SESSION['id']) and isset($_GET['id']) and $_SESSION['id'] == $_GET['id']) { ?>
-                <a href="index.php?action=editUser">Edit Profile</a>
+                <a href="index.php?action=editUser&id=<?= $_SESSION['id'] ?>">Edit Profile</a>
             <?php } else { ?>
                 <a href="index.php?action=userProfileView&id=<?= $_SESSION['id'] ?>">My profile</a>
             <?php } ?>
