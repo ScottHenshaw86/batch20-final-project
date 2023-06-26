@@ -34,6 +34,9 @@ body {
 	align-content: center;
 	padding: 1rem;
 }
+.red{
+	background-color: red;
+}
 
 /* TODO: hacky way to center the profile user */
 .empty {

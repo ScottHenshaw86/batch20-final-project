@@ -8,12 +8,17 @@ class UserManager extends Manager
     public function addUser($username, $email, $password)
     {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        // maybe we add the check here? 
+
+        $image_num = rand(0, 3);
+        $images = ['./public/s_green.png', './public/s_yellow.png', './public/s_orange.png', './public/s_red.png'];
+        $image_url = $images[$image_num];
+        // add a default image
         $db = $this->dbConnect();
-        $req = $db->prepare("INSERT INTO user (username, email, password) VALUES (:username, :email, :password)");
+        $req = $db->prepare("INSERT INTO user (username, email, password, profile_img) VALUES (:username, :email, :password, :image_url)");
         $req->bindParam("username", $username, PDO::PARAM_STR);
         $req->bindParam("email", $email, PDO::PARAM_STR);
         $req->bindParam("password", $hashed_password, PDO::PARAM_STR);
+        $req->bindParam("image_url", $image_url, PDO::PARAM_STR);
         $req->execute();
     }
     // INSERT NEW PROJECT

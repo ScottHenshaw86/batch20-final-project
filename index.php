@@ -138,6 +138,7 @@ try {
             break;
 
             // EDITING THE USER
+
         case "submitEditedUser":
             $id = $_POST['id'] ?? "";
             $first_name = $_POST['firstName'] ?? "";
@@ -183,12 +184,18 @@ try {
                 isset($_GET['user_id']) and
                 isset($_GET['project_id']) and
                 isset($_GET['stat'])
+
             ) {
+                echo "After";
+
                 getProjectVotes($_GET['user_id'], ($_GET['project_id']), ($_GET['stat']));
             } else {
                 echo "Bad";
             }
             break;
+
+
+
 
         default:
             displayCards();

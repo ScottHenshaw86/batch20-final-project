@@ -15,8 +15,12 @@ ob_start();
     <!-- </section> -->
     <section class="user-profile-view">
         <aside class="user-profile-info">
-            <div id='profile-img'>
-                <img src="<?= $profiles->profile_img ?>" alt="the photo of <?= $profiles->username; ?>">
+
+
+            <div id='profile-img' class=<?= $user_color ?>>
+
+                <img id=<?= $user_color ?> src="<?= $profiles->profile_img ?>" alt="the photo of <?= $profiles->username; ?>">
+
             </div>
             <div>
                 <h1 id='profile-name'><?= "$profiles->first_name $profiles->last_name"; ?></h1>
@@ -89,3 +93,5 @@ require "template.php";
 //     require "nonLoggedInTemplate.php";
 // }
 ?>
+
+<script defer src="./public/js/projectVotes.js"></script>

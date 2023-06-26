@@ -19,7 +19,7 @@
             <span class="language-tag"> <?php
                                         echo join(", ", $project->languages) ?></span>
         </div>
-        <p>SUM:</p> <?= $project->sum ?>;
+
     </div>
-    <?php include "projectVotes.php" ?>
+    <?php include "userProjectVotes.php" ?>
 </div>

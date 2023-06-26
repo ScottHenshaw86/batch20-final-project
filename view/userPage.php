@@ -9,6 +9,8 @@ Please, fix it later -->
 <p>Hello <?= $_SESSION['username'] ?></p>
 <a href="index.php?action=editUser&id=<?= $_SESSION['id'] ?>">Edit the user info</a>
 <?php
+
+
 $content = ob_get_clean();
 
 require "template.php";

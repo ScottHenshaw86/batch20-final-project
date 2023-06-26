@@ -67,6 +67,13 @@ class ProjectManager extends Manager
                 $projects[$project_id]->languages = [];
                 $projects[$project_id]->languages[] = $data->language_name;
 
+                $sumsQuery = $db->prepare("SELECT SUM(stat) AS sum_stat FROM project_votes WHERE project_id = :project_id");
+                $sumsQuery->bindParam("project_id", $project_id, PDO::PARAM_INT);
+                $sumsQuery->execute();
+                $sum = $sumsQuery->fetch()->sum_stat;
+                $projects[$project_id]->sum = $sum;
+
+
                 unset($projects[$project_id]->language_name);
             }
         }
@@ -91,7 +98,7 @@ class ProjectManager extends Manager
         ));
         $data = $req->fetch();
 
-        if ($data->user_id == 0) {
+        if ($_SESSION['id'] == 0) {
             echo "oh no";
         } else {
             if ($data->stat != 0) {
@@ -99,6 +106,7 @@ class ProjectManager extends Manager
                 $req->bindParam("user_id", $user_id, PDO::PARAM_INT);
                 $req->bindParam("project_id", $project_id, PDO::PARAM_INT);
                 $req->execute();
+                return 0;
             } else {
                 if ($data) {
                     // run an UPDATE
@@ -107,6 +115,7 @@ class ProjectManager extends Manager
                     $req->bindParam("user_id", $user_id, PDO::PARAM_INT);
                     $req->bindParam("project_id", $project_id, PDO::PARAM_INT);
                     $req->execute();
+                    return $stat;
                 } else {
                     // do an INSERT
                     $req = $db->prepare("INSERT INTO project_votes (user_id, project_id, stat) VALUES (:user_id, :project_id, :stat)");
@@ -114,6 +123,7 @@ class ProjectManager extends Manager
                     $req->bindParam("project_id", $project_id, PDO::PARAM_INT);
                     $req->bindParam("stat", $stat, PDO::PARAM_INT);
                     $req->execute();
+                    return $stat;
                 }
             }
         }
