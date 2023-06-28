@@ -110,9 +110,3 @@ function getFilteredProjects($filter)
     }
 }
 
-
-function applyVoteStatusFromStorage($user_id, $project_id, $stat)
-{
-    $projectManager = new ProjectManager();
-    $status = $projectManager->projectVotes($user_id, $project_id, $stat);
-}
