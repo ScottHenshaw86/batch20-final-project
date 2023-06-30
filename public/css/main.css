@@ -11,55 +11,55 @@
 #firstNameMissing,
 #lastNameNotValid,
 #lastNameMissing {
-  display: none;
-  color: red;
-  font-size: 10px;
+    display: none;
+    color: red;
+    font-size: 10px;
 }
 .red {
-  box-shadow: 0 0 5px 1px rgb(255, 24, 24);
+    box-shadow: 0 0 5px 1px rgb(255, 24, 24);
 }
 .green {
-  box-shadow: 0 0 5px 1px rgba(44, 248, 3);
+    box-shadow: 0 0 5px 1px rgba(44, 248, 3);
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --search-bar-radius: 1.2rem;
-  --search-bar-shadow: rgba(223, 217, 217, 1);
-  --light-grey: rgba(0, 0, 0, 0.5);
-  --light-purple-btn: #948dce;
-  --dark-purple-btn: #580ef6;
+    --search-bar-radius: 1.2rem;
+    --search-bar-shadow: rgba(223, 217, 217, 1);
+    --light-grey: rgba(0, 0, 0, 0.5);
+    --light-purple-btn: #948dce;
+    --dark-purple-btn: #580ef6;
 }
 
 /* -------- HEADER LOGGED IN --------*/
 
 body {
-  color: white;
-  font-family: sans-serif;
-  background-color: #000000;
+    color: white;
+    font-family: sans-serif;
+    background-color: #000000;
 }
 
 header {
-  font-family: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .logged-in {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 1.5rem;
-  font-weight: 600;
-  background: #25272d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    font-weight: 600;
+    background: #25272d;
 }
 
 /* .logged-in a:hover {
@@ -74,307 +74,307 @@ a {
 } */
 
 .company-logo {
-  width: 15%;
+    width: 15%;
 }
 
 .search-bar-div {
-  position: relative;
+    position: relative;
 }
 
 input[type="search"] {
-  padding: 0 1em;
-  width: 20em;
-  height: 2rem;
-  border: 1px solid var(--search-bar-shadow);
-  border-radius: var(--search-bar-radius);
-  /* box-shadow: 0 0.4rem var(--search-bar-shadow); */
-  outline: none;
-  border: 1px solid gray;
+    padding: 0 1em;
+    width: 20em;
+    height: 2rem;
+    border: 1px solid var(--search-bar-shadow);
+    border-radius: var(--search-bar-radius);
+    /* box-shadow: 0 0.4rem var(--search-bar-shadow); */
+    outline: none;
+    border: 1px solid gray;
 }
 
 .search-bar-div > i {
-  position: absolute;
-  left: 0.5rem;
-  top: 0.8rem;
-  color: var(--light-grey);
+    position: absolute;
+    left: 0.5rem;
+    top: 0.8rem;
+    color: var(--light-grey);
 }
 
 .right-side {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  /* min-width: 600px */
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    /* min-width: 600px */
 }
 
 .right-side a {
-  padding-right: 1rem;
-  padding: 0.5em 1.6em;
-  border-radius: 1em;
-  font-size: 0.9rem;
+    padding-right: 1rem;
+    padding: 0.5em 1.6em;
+    border-radius: 1em;
+    font-size: 0.9rem;
 
-  /* color: white; */
-  /* text-decoration: none; */
+    /* color: white; */
+    /* text-decoration: none; */
 }
 
 .right-side a:first-of-type {
-  background-color: var(--light-purple-btn);
+    background-color: var(--light-purple-btn);
 }
 
 .right-side a:nth-of-type(2) {
-  background-color: var(--dark-purple-btn);
+    background-color: var(--dark-purple-btn);
 }
 
 .right-side i {
-  color: var(--light-grey);
+    color: var(--light-grey);
 }
 
 /*-------- CSS For Viewing User Profile --------*/
 .user-profile-view {
-  margin: 1rem 3rem;
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  /* width: 100%; */
+    margin: 1rem 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    /* width: 100%; */
 }
 
 .user-profile-info {
-  /* width: 50%; */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    /* width: 50%; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .user-profile-info button {
-  border: 1px solid white;
-  padding: 0.6rem 1.2rem;
-  background-color: lightcyan;
-  /* margin: auto; */
-  border-radius: 1.4rem;
+    border: 1px solid white;
+    padding: 0.6rem 1.2rem;
+    background-color: lightcyan;
+    /* margin: auto; */
+    border-radius: 1.4rem;
 }
 
 .user-profile-info button a {
-  color: black;
+    color: black;
 }
 
 .user-profile-bio {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .user-profile-projects {
-  width: 50%;
+    width: 50%;
 }
 
 .user-profile-projects .card {
-  width: 45%;
-  height: 40%;
+    width: 45%;
+    height: 40%;
 }
 
 .user-profile-projects h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(#67b26f, #4ca2cd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(#67b26f, #4ca2cd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .user-profile-bio p,
 .user-profile-bio span {
-  font-size: 1.1rem;
+    font-size: 1.1rem;
 }
 
 #profile-img img {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
 }
 
 #profile-name {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 #profile-username {
-  font-weight: 400;
-  background: linear-gradient(to left, #be93c5, #7bc6cc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-weight: 400;
+    background: linear-gradient(to left, #be93c5, #7bc6cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #links-title {
-  color: lightcyan;
+    color: lightcyan;
 }
 
 #languages {
-  /* font-size: 72px; */
-  background: linear-gradient(to left, #4568dc, #b06ab3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    /* font-size: 72px; */
+    background: linear-gradient(to left, #4568dc, #b06ab3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .user-profile-socials {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .links {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
 /* CAROUSEL - TOP CONTAINER CSS */
 .index-container {
-  /* padding: 3.7rem 3.9rem; */
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
+    /* padding: 3.7rem 3.9rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
 }
 
 .index-container form {
-  margin-left: 1rem;
+    margin-left: 1rem;
 }
 
 .carousel-container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* background-color: white; */
-  /* height: 50%; */
-  width: 100vw;
-  height: 60vh;
-  position: relative;
-  /* border: 1px solid white; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* background-color: white; */
+    /* height: 50%; */
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+    /* border: 1px solid white; */
 }
 
 .carousel-container video {
-  position: absolute;
-  top: 0;
-  right: 0;
-  /* width: fit-content; */
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* width: fit-content; */
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
 }
 
 .carousel-container > ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 .slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 200ms ease-in-out;
-  transition-delay: 200ms;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    transition-delay: 200ms;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .slide h1,
 .slide .carousel-description,
 .slide button,
 .slide div {
-  max-width: 35%;
-  margin-left: 3rem;
+    max-width: 35%;
+    margin-left: 3rem;
 }
 
 .slide {
-  text-shadow: 4px 3px 2px rgba(0, 0, 0, 0.71);
+    text-shadow: 4px 3px 2px rgba(0, 0, 0, 0.71);
 }
 
 .carousel-username {
-    text-shadow: 2px 2px 2px rgba(94, 94, 94, 0.861)!important;
+    text-shadow: 2px 2px 2px rgba(94, 94, 94, 0.861) !important;
     color: #0077ff;
 }
 
 .slide[data-active] {
-  opacity: 1;
-  transition-delay: 0;
+    opacity: 1;
+    transition-delay: 0;
 }
 
 .slide button {
-  z-index: 3;
-  width: fit-content;
+    z-index: 3;
+    width: fit-content;
 }
 
 .slide h1 {
-  font-weight: 900;
-  font-size: 4.5rem;
-  line-height: 1.2;
-  letter-spacing: -2px;
+    font-weight: 900;
+    font-size: 4.5rem;
+    line-height: 1.2;
+    letter-spacing: -2px;
 }
 
 .slide .carousel-username {
-  font-weight: 500;
-  font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .slide .carousel-description {
-  font-size: 14px;
-  letter-spacing: 0.6px;
+    font-size: 14px;
+    letter-spacing: 0.6px;
 }
 
 .slide button {
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  border: none;
-  background-color: #0077ff;
-  color: white;
-  margin-top: 1rem; /* addition 1rem of top margin */
-  font-weight: 900;
-  font-size: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: #0077ff;
+    color: white;
+    margin-top: 1rem; /* addition 1rem of top margin */
+    font-weight: 900;
+    font-size: 1rem;
 }
 
 /* the prev/next sliders */
 .carousel-button {
-  color: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  background: none;
-  border: none;
-  font-size: 3rem;
-  z-index: 2;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .carousel-button:hover,
 .carousel-button:focus {
-  color: white;
+    color: white;
 }
 
 .carousel-button.prev {
-  left: 1rem;
+    left: 1rem;
 }
 
 .carousel-button.next {
-  right: 1rem;
+    right: 1rem;
 }
 
 .carousel-profile-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .flex {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 /* .carousel-container > p {
@@ -403,20 +403,20 @@ input[type="search"] {
 } */
 
 .project-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 0 1.7rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 1.7rem;
 }
 
 /* FOR THE INDIVIDUAL PROJECTS */
 .project-wrapper {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 0 1.7rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 1.7rem;
 }
 
 /* The drop down list */
@@ -438,100 +438,100 @@ input[type="search"] {
 
 /* CSS for Full Project Page (links to projectPage.php HTML */
 .main-container {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .title {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
 }
 
 .titleName {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .username {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .top-container {
-  width: 90%;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .middle-container {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .animation-container {
-  width: 80%;
-  height: 100%;
-  border: 0.1px solid var(--search-bar-shadow);
-  border-radius: var(--search-bar-radius);
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  overflow: hidden;
+    width: 80%;
+    height: 100%;
+    border: 0.1px solid var(--search-bar-shadow);
+    border-radius: var(--search-bar-radius);
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    overflow: hidden;
 }
 .project-vid {
-  width: 100%;
+    width: 100%;
 }
 
 .langTag {
-  width: 10%;
-  margin-left: 100px;
-  font-family: "Inter", sans-serif;
-  display: flex;
-  /* justify-content: flex-end; */
-  flex-direction: column;
-  gap: 40px;
+    width: 10%;
+    margin-left: 100px;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+    gap: 40px;
 }
 
 .btn {
-  color: white;
-  border-radius: 20px;
+    color: white;
+    border-radius: 20px;
 }
 
 .tag {
-  font-family: "Inter", sans-serif;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  padding: 8px 12px;
-  border: 1px solid #000;
-  border-radius: 20px;
-  color: #000;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  width: 20%;
+    font-family: "Inter", sans-serif;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    width: 20%;
 }
 
 .profile-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 
-  /* background-color: #74ebd5; */
-  overflow: hidden;
+    /* background-color: #74ebd5; */
+    overflow: hidden;
 }
 
 .user-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(to left, #4568dc, #b06ab3);
-  overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(to left, #4568dc, #b06ab3);
+    overflow: hidden;
 }
 
 .user-img1 {
@@ -547,165 +547,208 @@ input[type="search"] {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #cdefe9;
-  color: #000000;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 40%;
-  border-radius: 20px;
+    background-color: #cdefe9;
+    color: #000000;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 20px;
 }
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #infoBtn {
-  width: 60px;
-  height: 60px;
-  font-size: 50px;
-  border-radius: 8px;
-  background: linear-gradient(to left, #4568dc, #b06ab3);
-  border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    border-radius: 8px;
+    background: linear-gradient(to left, #4568dc, #b06ab3);
+    border: none;
 }
 
 /* tooltip */
 .tooltip {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .tooltiptext {
-  margin-left: -180px;
-  margin-top: 14px;
+    margin-left: -180px;
+    margin-top: 14px;
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: white;
-  color: black;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  font-size: 16px;
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 16px;
 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
 }
 
 .tooltip .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 100%; /* To the right of the tooltip */
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent white;
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
 }
 
 /* social media links */
 .gitHub,
 .linkedin {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .fa-github::before {
-  background: linear-gradient(to left, #4568dc, #b06ab3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(to left, #4568dc, #b06ab3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .fa-linkedin::before {
-  background: linear-gradient(to left, #4568dc, #b06ab3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(to left, #4568dc, #b06ab3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .bottom-container {
-  display: flex;
-  margin-top: 30px;
-  justify-content: flex-start;
-  align-items: center;
-  width: 90%;
-  height: 60%;
+    display: flex;
+    margin-top: 30px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 60%;
 }
 
 .description {
-  width: 70%;
+    width: 70%;
 }
 
 .modify {
-  display: flex;
-  margin-left: 50px;
-  flex-direction: column;
+    display: flex;
+    margin-left: 50px;
+    flex-direction: column;
 }
 
 .edit-btn {
-  width: 80px;
-  height: 40px;
-  font-size: 20px;
-  background: linear-gradient(to left, #74ebd5, #580ef6);
-  border-radius: 10px;
-  border: none;
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    background: linear-gradient(to left, #74ebd5, #580ef6);
+    border-radius: 10px;
+    border: none;
 }
 
 .delete-btn {
-  width: 80px;
-  height: 40px;
-  font-size: 20px;
-  background: linear-gradient(to left, #580ef6, #74ebd5);
-  margin-top: 20px;
-  border-radius: 10px;
-  border: none;
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    background: linear-gradient(to left, #580ef6, #74ebd5);
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
 }
 
 .edit,
 .delete {
-  color: white;
+    color: white;
 }
 
 #filter {
-  width: fit-content;
+    width: fit-content;
 }
 .more {
-  margin-left: 39%;
-  width: 20%;
-  border-radius: 0.4rem;
-  padding: 0.5rem 0.8rem;
-  background-color: transparent;
-  color: white;
-  border: 0.1px solid white;
+    margin-left: 39%;
+    width: 20%;
+    border-radius: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    background-color: transparent;
+    color: white;
+    border: 0.1px solid white;
+}
+
+/* edit user image tooltip on userProfileView.php */
+.img-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.img-tooltiptext {
+    margin-left: -180px;
+    margin-top: 14px;
+}
+
+.img-tooltip:hover .img-tooltiptext {
+    visibility: visible;
+}
+
+.img-tooltip .img-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    margin-bottom: 5px;
+
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.img-tooltip:hover .img-tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
