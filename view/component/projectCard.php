@@ -1,10 +1,8 @@
 <div class="card">
-    <p>
-        <a href="index.php?action=fullProjectPage&project_id=<?= $project->id ?>">
-            <!-- muted attribute enables video to play when hovered. otherwise user would have to click anywhere on the page -->
-            <video muted src="./public/uploaded_videos/<?= htmlspecialchars($project->video_src) ?>" class="project-mp4" onmouseover="this.play();" onmouseout="this.load();" onended="this.load()">
-            </video></a>
-    </p>
+    <a href="index.php?action=fullProjectPage&project_id=<?= $project->id ?>">
+        <!-- muted attribute enables video to play when hovered. otherwise user would have to click anywhere on the page -->
+        <video muted src="./public/uploaded_videos/<?= htmlspecialchars($project->video_src) ?>" class="project-mp4" onmouseover="this.play();" onmouseout="this.load();" onended="this.load()">
+        </video></a>
 
     <!-- ***** Bottom Half of Project Card ***** -->
     <div class='outer-container'>
@@ -26,9 +24,7 @@
         <!-- Upvote + Downvote Buttons -->
         <div class="projectVotesContainer">
             <?php
-            // if (isset($_GET['user_id']) ? $_SESSION['user_id'] : 0);
             include "projectVotes.php";
-
             ?>
         </div>
     </div>
