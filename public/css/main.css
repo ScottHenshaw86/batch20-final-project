@@ -900,3 +900,7 @@ input[type="search"] {
   color: white;
   border: 0.1px solid white;
 } */
+
+.popup-container {
+  border-radius: 10px;
+}
