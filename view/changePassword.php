@@ -5,6 +5,7 @@ ob_start();
 ?>
 <link href="./public/css/formInput.css" rel="stylesheet" />
 
+
 <div id="edit-user-form">
 
     <form action="index.php?action=submitChangePassword" method="POST" id="changePassword">

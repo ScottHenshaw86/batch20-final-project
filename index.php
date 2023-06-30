@@ -36,6 +36,8 @@ try {
             break;
 
         case "updateProject":
+            //$hidden_video used for submitting update form without a video
+            $hidden_video = $_POST['hiddenVideo'] ?? "";
             $video_src = $_FILES['video'] ?? "";
             $description = $_POST['description'] ?? "";
             $title = $_POST['title'] ?? "";
@@ -43,11 +45,12 @@ try {
             $languages = $_POST['languages'] ?? "";
             $project_id = $_GET['project_id'] ?? "";
 
-            if ($video_src and $description and $title and $tags and $languages and $project_id) {
-                updateProject($video_src, $description, $title, $tags, $languages, $_GET['project_id']);
+            if ($video_src and $description and $title and $tags and $languages and $project_id and $hidden_video) {
+                updateProject($video_src, $description, $title, $tags, $languages, $_GET['project_id'], $hidden_video);
             } else {
                 throw new Exception("Error, missing project info");
             }
+
 
             break;
 
@@ -288,6 +291,12 @@ try {
                 getFilteredProjects($_GET['filterOn']);
             } else {
                 throw new Exception("Missing filter value");
+            }
+            break;
+
+        case "search_data":
+            if (isset($_GET['query'])) {
+                getSearchInfo($_GET['query']);
             }
             break;
 

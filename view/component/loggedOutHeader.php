@@ -11,7 +11,8 @@
     <div class="right-side">
         <div class="search-bar-div">
             <!-- MIDDLE -->
-            <input class="search-bar" type="search" name="" id="" placeholder="Search">
+            <input class="search-bar" type="search" name="input" id="input" placeholder="Search">
+            <div id="results"></div>
             <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
         </div>
         <!-- RIGHT SIDE -->

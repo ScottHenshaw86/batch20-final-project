@@ -10,6 +10,8 @@ const tagInput = document.querySelector(".tag-container input");
 
 const languageContainer = document.querySelector(".languages-container");
 const languageInput = document.querySelector(".languages-container input");
+const video = document.querySelector("#video");
+const hiddenVideo = document.querySelector("#hiddenVideo");
 
 const form = document.querySelector("form");
 
@@ -347,6 +349,9 @@ languageContainer.addEventListener("click", (e) => {
 // Before submitting form, join the 'tags' and 'languages' array and set them as values to their respective input field
 form.addEventListener("submit", (e) => {
 	let valid = validateURL(video.value);
+	if (!valid && hiddenVideo.value) {
+		valid = true;
+	}
 	valid = validateTitle(title.value) && valid;
 	valid = validateTags() && valid;
 	valid = validateDesc(description.value) && valid;

@@ -17,7 +17,7 @@ if (isset($_GET['error'])) {
 
         <p>
             <label for="profileImage">Profile Image: </label>
-            <input type="file" name="profileImage" id="profileImage" value="<?= $userinfo->profile_img ?? "" ?>">
+            <input type="file" name="profileImage" id="profileImage" value="<?= $userinfo->profile_img ?? "" ?>" accept="image/*">
         </p>
         <p>
             <input type="submit" value="submit changes" id="editSubmit">

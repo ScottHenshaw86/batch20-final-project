@@ -11,7 +11,8 @@ ob_start();
 <form action="index.php?action=updateProject&project_id=<?= $project->id ?>" method="POST" enctype="multipart/form-data">
     <p>
         <label for="video">Video: </label>
-        <input type="file" name="video" id="video" value="<?= htmlspecialchars($project->video_src)  ?>" accept="video/*">
+        <input type="hidden" name="hiddenVideo" id="hiddenVideo" value="<?= htmlspecialchars($project->video_src)  ?>">
+        <input type="file" name="video" id="video" accept="video/*">
     </p>
 
     <p>

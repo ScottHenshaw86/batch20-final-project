@@ -98,8 +98,15 @@ input[type="search"] {
     top: 0.8rem;
     color: var(--light-grey);
 }
+.right-side-wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
 .right-side {
+<<<<<<< HEAD
     display: flex;
     align-items: center;
     gap: 1em;
@@ -118,6 +125,43 @@ input[type="search"] {
 
 .right-side a:first-of-type {
     background-color: var(--light-purple-btn);
+=======
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	/* min-width: 600px */
+}
+
+.right-side a {
+	text-decoration: none;
+	padding-right: 1rem;
+	color: white;
+	padding: 0.5em 1.6em;
+	border-radius: 1em;
+	font-size: 0.9rem;
+	/* background-color: var(--light-purple-btn); */
+
+}
+
+.popup-container a {
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	padding: 0;
+	font-size: 1rem;
+	
+}
+.popup-container button {
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	padding: 0;
+	text-align: left;
+	font-size: 1rem;
+}
+.log-out-btn {
+	background-color: var(--light-purple-btn);
+>>>>>>> main
 }
 
 .right-side a:nth-of-type(2) {
@@ -125,8 +169,155 @@ input[type="search"] {
 }
 
 .right-side i {
+<<<<<<< HEAD
     color: var(--light-grey);
+=======
+	color: var(--light-grey);
+>>>>>>> main
 }
+
+.popup-container {
+	opacity: 0;
+	position: absolute;
+	transition: 1s;
+	z-index: 10;
+	width: 100%;
+}
+.popup-container p {
+	border-bottom: 1px black solid;
+	padding: .8rem;
+	width: 100%;
+}
+#checkbox {
+	display: none;
+}
+#checkbox:checked ~ .popup-container {
+	opacity: 1;
+	background-color: #948dce;
+	width: 100%;
+}
+
+#checkbox:checked ~ .popup-container p{
+	border-bottom: 1px black solid;
+	padding: .8rem;
+	width: 100%;
+}
+
+#blur-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+}
+#checkbox:checked ~ #blur-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/*-------- PROJECT CARD --------*/
+/*
+.main-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+	gap: 1.5rem;
+}
+.project-gif {
+	width: 100%;
+}
+
+.card {
+	width: 23%;
+	height: 20%;
+	border: 1px solid var(--search-bar-shadow);
+	border-radius: var(--search-bar-radius);
+	font-family: "Inter", sans-serif;
+	font-size: 0.8rem;
+	overflow: hidden;
+}
+
+.card .project-gif {
+	height: 200px;
+	aspect-ratio: 1;
+}
+.click-user-wrap {
+	width: fit-content;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+#checkbox-label a{
+	padding: 0;
+}
+.click-user {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	cursor: pointer;
+	width: fit-content;
+	padding: 0 1rem;
+}
+.user-profile-pic {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid var(--light-grey);
+}
+
+.bottom-card-container,
+.projectVotesContainer {
+	display: flex;
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	gap: 7px;
+}
+
+.project-description {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.project-title {
+	font-weight: 800;
+	font-size: 0.9rem;
+}
+
+.language-tag {
+	color: lightgray;
+}
+  */
+
+
+.click-user-wrap {
+	width: fit-content;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+#checkbox-label a{
+	padding: 0;
+}
+.click-user {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	cursor: pointer;
+	width: fit-content;
+	padding: 0 1rem;
+}
+
+
 
 /*-------- CSS For Viewing User Profile --------*/
 .user-profile-view {
@@ -189,12 +380,57 @@ input[type="search"] {
 .user-profile-bio span {
     font-size: 1.1rem;
 }
-
 #profile-img img {
+<<<<<<< HEAD
     width: 350px;
     height: 350px;
     border-radius: 50%;
+=======
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  cursor: url(./pencil.png), auto;
+>>>>>>> main
 }
+#profile-img {
+  position: relative;
+  cursor: url(./pencil.png), auto;
+}
+#profile-img::before {
+  /* --scale: 0; */
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -.25rem;
+  left: -.2rem;
+  opacity: 0;
+  font-size: .6rem;
+  padding: 10px;
+  width: 5rem;
+  background-color: var(--light-purple-btn);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: .4s;
+
+}
+#profile-img::after {
+  content: '';
+  position: absolute;
+  top: 2.36rem;
+  opacity: 0;
+  left: 4rem;
+  border: 10px solid transparent;
+  border-top-color: var(--light-purple-btn);
+  transition: .4s;
+  cursor: url(./pen_cursor.png), auto;
+}
+#profile-img:hover::before, #profile-img:hover::after{
+  transition: .4s;
+  opacity: 1;
+}
+
+
 
 #profile-name {
     font-size: 2rem;
