@@ -13,7 +13,11 @@ ob_start();
 <div class="login-form">
   <form action="index.php?action=logIn" method="POST" id="login">
 
-    <p class="login-title"> Log in to DevShop</p>
+    <div class="login-title">
+      <p>Welcome back!</p>
+      <p>Sign into your account</p>
+    </div>
+
 
     <p>
       <label for="loginUsername">Username: </label>
@@ -26,22 +30,27 @@ ob_start();
 
     <a class="sign-assist" href="index.php?action=">Need help signing in?</a>
 
+
     <p>
       <input type="submit" value="submit" id="loginSubmit" disabled>
     </p>
 
-    <button class="sign-btn">
-      <a href="index.php?action=add_user">Don't have an account? Sign up</a>
-    </button>
-
     <!-- GOOGLE BUTTON -->
     <div class="google-btn">
-      <div id="g_id_onload" data-client_id="<?= getenv("GOOGLE_CLIENT_ID") ?>" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost/sites/batch20-final-project/index.php?action=googleLogIn" data-auto_prompt="false">
+      <div id="g_id_onload" data-client_id="<?= getenv("GOOGLE_CLIENT_ID") ?>" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost/sites/batch20-final-project/index.php?action=googleLogIn&signUp=false" data-auto_prompt="false">
       </div>
 
       <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left">
       </div>
     </div>
+
+    <span class="line"></span>
+
+    <button class="sign-btn">
+      <a href="index.php?action=add_user">Don't have an account? Sign up</a>
+    </button>
+
+
   </form>
 </div>
 

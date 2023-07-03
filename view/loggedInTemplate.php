@@ -32,9 +32,7 @@
     ?>
     <?= $content; ?>
 
-    <footer>
-        <!-- TODO: INCLUDE FOOTER FOR NON LOGGED IN USERS -->
-    </footer>
+
 
 </body>
 

@@ -16,26 +16,26 @@ if (isset($_SESSION['id'])) {
   <div class="top-container"> <!--block elements -->
     <div class="profile-img">
       <!-- TODO:connect backend to the profile image info DONE-->
-      <img class="user-img1" src="<?= $fullProject->profile_img ?>" alt="the photo of <?= $fullProject->username; ?>">
+      <img class="user-img1" src="<?= htmlspecialchars($fullProject->profile_img) ?>" alt="the photo of <?= htmlspecialchars($fullProject->username); ?>">
     </div>
     <div class="titleName"> <!--inline elements -->
       <div class="title">
-        <h1><?= $fullProject->title ?></h1>
+        <h1><?= htmlspecialchars($fullProject->title) ?></h1>
       </div>
-      <div class="username"><?= $fullProject->username ?></div>
+      <div class="username"><?= htmlspecialchars($fullProject->username) ?></div>
     </div>
   </div>
 
   <div class="middle-container">
     <div class="animation-container">
       <p>
-        <video class="project-vid" onclick="this.paused ? this.play() : this.pause(); arguments[0].preventDefault();" autoplay muted src="./public/uploaded_videos/<?= $fullProject->video_src ?>"></video>
+        <video class="project-vid" onclick="this.paused ? this.play() : this.pause(); arguments[0].preventDefault();" autoplay muted src="./public/uploaded_videos/<?= htmlspecialchars($fullProject->video_src) ?>"></video>
       </p>
     </div>
 
     <div class="langTag">
       <!-- flex-direction: column    -->
-      <div class="user-logo"><img class="user-img2" src="<?= $fullProject->profile_img ?>" alt="the photo of <?= $fullProject->username; ?>"></div>
+      <div class="user-logo"><img class="user-img2" src="<?= htmlspecialchars($fullProject->profile_img) ?>" alt="the photo of <?= htmlspecialchars($fullProject->username); ?>"></div>
       <!-- Trigger/Open The Modal -->
       <div class="tooltip">
         <button id="infoBtn">
@@ -46,11 +46,11 @@ if (isset($_SESSION['id'])) {
       <!-- social media links -->
       <div class="gitHub">
         <!-- TODO: fix this -->
-        <a href="<?= $fullProject->gitHub; ?>"><i class="fa-brands fa-2xl fa-github" style=" font-size: 4rem;"></i></a>
+        <a href="<?= htmlspecialchars($fullProject->gitHub); ?>"><i class="fa-brands fa-2xl fa-github" style=" font-size: 4rem;"></i></a>
       </div>
       <div class="linkedin">
         <!-- TODO: fix this -->
-        <a href="<?= $fullProject->linkedIn; ?>"><i class="fa-brands fa-2xl fa-linkedin" style="font-size: 4rem;"></i></a>
+        <a href="<?= htmlspecialchars($fullProject->linkedIn); ?>"><i class="fa-brands fa-2xl fa-linkedin" style="font-size: 4rem;"></i></a>
       </div>
 
       <!-- The Modal -->
@@ -61,7 +61,7 @@ if (isset($_SESSION['id'])) {
           <div class="languages">Made with:
             <?php
             for ($i = 0; $i < count($fullProject->languages); $i++) {
-              echo $fullProject->languages[$i] . " ";
+              echo htmlspecialchars($fullProject->languages[$i]) . " ";
             }; ?>
           </div>
           <br>
@@ -77,7 +77,7 @@ if (isset($_SESSION['id'])) {
   </div>
   <!--inline elements -->
   <div class="bottom-container">
-    <div class="description"><?= $fullProject->description ?></div>
+    <div class="description"><?= htmlspecialchars($fullProject->description) ?></div>
 
     <?php if (isset($_SESSION['id']) and $_SESSION['id'] == $fullProject->user_id) {
     ?>

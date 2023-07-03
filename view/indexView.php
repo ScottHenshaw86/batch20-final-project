@@ -13,6 +13,8 @@ if (isset($_SESSION['id'])) {
 
 <!-- OVERALL CONTAINER -->
 <div class="index-container">
+
+
   <!-- carousel container -->
   <div class="carousel-container" data-carousel>
     <button class="carousel-button prev" data-carousel-button='prev'>&#x2039</button>
@@ -30,6 +32,15 @@ if (isset($_SESSION['id'])) {
     <p class="cdescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dignissimos officiis nam id. Modi id amet ullam rem labore quam perspiciatis nulla explicabo aut pariatur fugiat eum, tenetur illum quis!</p>
     <button class="carousel-more">view more</button> -->
   </div>
+
+  <div class="about-container">
+    <!-- <marquee>ABOUT US!!!!!!!ABOUT US!!!!!!!ABOUT US!!!!!!!ABOUT US!!!!!!!ABOUT US!!!!!!!ABOUT US!!!!!!!</marquee> -->
+    <p>DevShop is a platform that brings together developers of all skill levels to upload, share, and explore a wide range of projects. This makes it easier for others to discover like-minded developers and engage in meaningful collaborations.With DevShop, you can embark on a journey of exploration, inspiration, and growth. Unleash your creativity, share your expertise, and collaborate with fellow developers as you shape the future of software development.</p>
+  </div>
+
+
+
+  <!-- FILTER PROJECTS -->
   <select name="filter" id="filter" onchange="filterProjects(this.value)">
     <option value="" selected disabled hidden>Filter</option>
     <option value="mostRecent">Most Recent</option>
@@ -78,4 +89,9 @@ if (isset($_SESSION['id'])) {
   <?php
 
   }
+
+
+  ?>
+  <?php
+  include "./view/footer.php";
   ?>

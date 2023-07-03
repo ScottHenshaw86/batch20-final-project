@@ -7,7 +7,7 @@ ob_start();
 
 <div id="edit-user-form">
     <form action="index.php?action=submitEditedProfile" method="POST" id="editForm">
-        <p id="edit-user-title">Edit User</p>
+        <p id="edit-user-title">Edit Profile</p>
         <input type="hidden" name="id" value="<?= $userinfo->id ?>">
 
 

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Molengo&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+
 #usernameNotValid,
 #usernameMissing,
 #emailNotValid,
@@ -46,6 +48,19 @@ body {
 
 header {
   font-family: "Inter", sans-serif;
+  position: sticky;
+  width: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  font-weight: 600;
+  /* background: #25272d; */
+  background: rgb(22, 22, 22);
+  padding: .8rem 0;
 }
 
 a {
@@ -53,6 +68,8 @@ a {
   color: white;
 }
 
+
+/*
 .logged-in {
   display: flex;
   justify-content: space-between;
@@ -60,10 +77,10 @@ a {
   padding: 1.3rem 1.5rem;
   font-weight: 900;
   background: #000000;
-  /* background: black; */
+  /* background: black; 
 }
 
-/* .logged-in a:hover {
+ .logged-in a:hover {
     background-color: lightgray;
     
 } */
@@ -74,6 +91,11 @@ a {
     color: white;
 } */
 
+
+.left-side {
+  display: flex;
+  align-items: center;
+}
 .company-logo {
   width: 15%;
 }
@@ -120,9 +142,31 @@ input[type="search"] {
 	padding: .7rem 1.5rem;
 	border-radius: 2rem;
 	font-size: 0.9rem;
-	/* background-color: var(--light-purple-btn); */
+	background-color: var(--light-purple-btn);
 
 }
+
+.about-container {
+  width: 60%;
+  margin: auto;
+  font-family: 'Inter';
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  /* border-bottom: 3px solid var(--dark-purple-btn); */
+}
+
+.about-container::after {
+        display:block;
+        content : "";
+        position: relative;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 50%;  /* or 100px */
+        border-bottom: 3px solid var(--dark-purple-btn);
+        margin: 0 auto;
+        padding-bottom: 1rem;
+    }
 
 .popup-container a {
 	background-color: transparent;
@@ -901,6 +945,18 @@ input[type="search"] {
   border: 0.1px solid white;
 } */
 
-.popup-container {
-  border-radius: 10px;
+footer {
+  background-color: rgba(37, 37, 37, 0.318);
+  padding: 0.7rem;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+footer p:nth-child(1) {
+  font-weight: 900;
+}
+
+footer a {
+  color: rgb(96, 96, 96);
 }

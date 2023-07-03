@@ -9,16 +9,13 @@ body {
 /* FORM STYLING */
 .login-form,
 #edit-user-form,
-#settings-form, 
+#settings-form,
 .signup-form {
   display: flex;
   justify-content: center;
   width: 35%;
-  height: 60%;
-  background-color: #232325;
-}
-.signup-form{
-  height: 80%;
+  height: 70%;
+  background-color: #171717c6;
 }
 
 .google-btn {
@@ -28,19 +25,13 @@ body {
   align-items: center;
 }
 
-#settings-form {
-  height: 70%;
-}
 
-#edit-user-form {
-	height: 60%;
-}
 
 #login,
 #editForm,
 #settingsForm,
 /* #form is for the userAddForm */
-#signUpForm  {
+#signUpForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,13 +41,8 @@ body {
   gap: 20px;
 }
 
-#signUpForm {
-  gap: 8px;
-}
 
-#settingsForm {
-  gap: 0px !important;
-}
+
 
 input,
 button {
@@ -68,6 +54,11 @@ button {
   color: white;
   border: 0.1px solid white;
   outline: none; /* removes red border */
+}
+
+.line {
+  border-top: 0.2px solid rgba(160, 160, 160, 0.592);
+  margin-bottom: -1rem;
 }
 
 input:focus {
@@ -90,8 +81,8 @@ button:hover {
 }
 
 #editSubmit:hover {
-	background: #580ef6;
-	cursor: pointer;
+  background: #580ef6;
+  cursor: pointer;
 }
 
 /* class for filled inputs */
@@ -112,56 +103,67 @@ a {
 }
 
 .login-title {
-  font-size: 1.7rem;
-  padding-bottom: 1.8rem;
+  /* font-size: 1.7rem; */
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.login-title p:nth-of-type(1) {
+  color: white;
+  font-size: 2rem;
+}
+
+.login-title p:nth-of-type(2) {
+  color: #580ef6;
+  font-size: 1rem;
+}
+
+label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+
+
+/* CUSTOM SIGN UP STYLING */
+.signup-form {
+  height: 85%;
+  width: 40%;
+}
+
+.signup-form h1 {
   text-align: center;
 }
 
-/* EDIT USER FORM */
-/* #editForm {
-  width: 35%;
-  height: 60%;
-} */
-
-/* ----EDIT A USER FORM ---- */
-/* #edit-user-form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: var(--form-bg-color);
-	border: var(--form-border);
-	border-radius: var(--form-border-radius);
-	width: var(--form-width);
-	margin-top: 20px;
+#signUpForm {
+  gap: 8px;
+  
 }
+
+#signupSubmit {
+  margin-bottom: 0.5rem;
+}
+
+.signup-btn {
+  margin-top: 1rem !important;
+}
+
+
+/* CUSTOM SETTINGS STYLING */
+#settings-form {
+  height: 70%;
+}
+#settingsForm {
+  gap: 0px !important;
+}
+
 #edit-user-title {
-	color: var(--form-text-color);
-	font-size: 20px;
-	padding: var(--form-title-padding);
-	text-align: center;
+ text-align:center;
+ font-size: 1.7rem;
+ padding-bottom: 1.3rem;
 }
 
-#editForm label {
-	color: var(--form-text-color);
-	margin-bottom: var(--label-margin-bottom);
+/* CUSTOM EDIT PROFILE SETTINGS */
+#edit-user-form {
+  height: 60%;
 }
-
-input {
-	margin-bottom: 15px;
-}
-
-input[type="submit"] {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#editSubmit {
-	background-color: var(--submit-btn-bg-color);
-	color: var(--form-text-color);
-	cursor: var(--cursor);
-	border: var(--submit-btn-border);
-	border-radius: var(--submit-btn-border-radius);
-	line-height: var(--submit-btn-line-height);
-	padding: var(--submit-btn-padding);
-} */

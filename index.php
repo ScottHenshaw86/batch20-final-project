@@ -98,8 +98,7 @@ try {
             // echo "<pre>";
             // print_r($_FILES['video']);
             // echo "</pre>";
-            $video_src = $_FILES['video'] ?? ""; // turning out to be an array
-            //need to insert the source instead of the array
+            $video_src = $_FILES['video'] ?? "";
             $title = $_POST['title'] ?? "";
             $description = $_POST['description'] ?? "";
             $tags = $_POST['tags'] ?? "";
@@ -109,10 +108,6 @@ try {
             if ($user_id and $video_src and $title and $description and $tags and $languages) {
                 insertNewProject($user_id, $video_src, $title, $description, $tags, $languages);
             } else {
-                // echo "<pre>";
-                // print_r($_POST);
-                // print_r($_FILES);
-                // print_r($_SESSION);
                 throw new Exception("Missing required information.");
             }
             break;
@@ -131,8 +126,13 @@ try {
             }
             break;
 
+
             // FOR LOGING IN WITH GOOGLE BUTTON
         case "googleLogIn":
+            if (isset($_GET['signUp'])) {
+                $signUp = $_GET['signUp'];
+            }
+
             $token = $_REQUEST['credential'];
             $jwt = json_decode(base64_decode(str_replace('_', '/', str_replace('-', '+', explode('.', $token)[1]))));
 
@@ -145,7 +145,7 @@ try {
             ) {
                 // FOR SPLITTING THE EMAIL ON @ SIGN, AND MAKING A USERNAME
                 $username = substr($jwt->email, 0, strpos($jwt->email, "@"));
-                logInGoogle($username, $jwt->given_name, $jwt->family_name, $jwt->email, $jwt->picture);
+                logInGoogle($username, $jwt->given_name, $jwt->family_name, $jwt->email, $jwt->picture, $signUp);
             }
             break;
 
@@ -187,6 +187,7 @@ try {
         case "submitEditedProfilePicture":
             $id = $_POST['id'] ?? "";
             $profile_image = $_FILES['profileImage'];
+            // $hidden_image = $_POST['hiddenImage'];
 
             if (
                 $id and $profile_image

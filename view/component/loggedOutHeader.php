@@ -2,7 +2,7 @@
     <div class="left-side">
         <!-- LEFT SIDE  -->
         <!-- TODO: add logo  -->
-        <img class="company-logo" src="" alt="">
+        <img class="company-logo" src="public/logo.png" alt="">
         <!-- TODO:href take us back to index -->
         <a href="index.php?action=showUserPage">DevShop</a>
         <!-- homebutton -->

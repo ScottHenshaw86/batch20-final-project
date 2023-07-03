@@ -29,12 +29,6 @@
     }
     ?>
     <?= $content; ?>
-
-
-    <footer>
-        <!-- TODO: INCLUDE FOOTER LOGGED IN USERS -->
-    </footer>
-
 </body>
 
 </html>

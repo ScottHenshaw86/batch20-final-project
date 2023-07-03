@@ -52,18 +52,28 @@ if (isset($_GET['error'])) {
             <span id="passwordConfirmError">Password does not match</span>
             <span>&#8203;</span>
         </p>
+
         <p>
             <input type="submit" value="Submit form" id="signupSubmit">
         </p>
 
         <!-- GOOGLE BUTTON -->
         <div class="google-btn">
-            <div id="g_id_onload" data-client_id="<?= getenv("GOOGLE_CLIENT_ID") ?>" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost/sites/batch20-final-project/index.php?action=googleLogIn" data-auto_prompt="false">
+            <div id="g_id_onload" data-client_id="<?= getenv("GOOGLE_CLIENT_ID") ?>" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost/sites/batch20-final-project/index.php?action=googleLogIn&signUp=true" data-auto_prompt="false">
             </div>
 
             <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left">
             </div>
         </div>
+
+
+
+        <span class="line"></span>
+
+        <button class="signup-btn">
+            <a href="index.php?action=signInForm">Have an account? Sign in</a>
+        </button>
+
 
     </form>
 </div>
