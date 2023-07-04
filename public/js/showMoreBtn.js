@@ -1,4 +1,4 @@
-offset = 0; // offset for default
+defaultLimit = 4; // offset for default
 mostLikesLimit = 4;
 mostRecentLimit = 4;
 
@@ -47,9 +47,9 @@ showMoreBtn.addEventListener("click", () => {
 
     // filter on default
     if (currSelectedFilter.value == "default") {
-        offset += 4;
+        defaultLimit += 4;
     
-        xhr.open("GET", `index.php?offset=${offset}`);
+        xhr.open("GET", `index.php?limit=${defaultLimit}`);
     
         xhr.addEventListener("load", () => {
             // clear previous projects
@@ -57,7 +57,7 @@ showMoreBtn.addEventListener("click", () => {
     
             // from projectController.php -> getFilteredProjects function, response text is HTML
             const response = xhr.responseText;
-            projectContainer.innerHTML += response;
+            projectContainer.innerHTML = response;
         })
     }
 

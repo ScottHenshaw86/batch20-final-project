@@ -14,11 +14,11 @@ ob_start();
             <div class="user-info">
                 <div class="flex">
                     <div id='profile-img' data-tooltip="Change the profile image">
-                        <a href="index.php?action=editUserPicture&id=<?= $_GET['id'] ?>"><img src="<?= htmlspecialchars($userInfo->profile_img) ?>" alt="profile image"></a>
+                        <a href="index.php?action=editUserPicture&id=<?= $_GET['id'] ?>"><img src="<?= htmlspecialchars($userInfo->profile_img ?? "") ?>" alt="profile image"></a>
                     </div>
                     <div id="profile">
-                        <h1 id='profile-name'><?= htmlspecialchars($userInfo->first_name) . " " . htmlspecialchars($userInfo->last_name); ?></h1>
-                        <h1 id='profile-username'><?= "@" . htmlspecialchars($userInfo->username) ?></h1>
+                        <h1 id='profile-name'><?= htmlspecialchars($userInfo->first_name ?? "") . " " . htmlspecialchars($userInfo->last_name ?? ""); ?></h1>
+                        <h1 id='profile-username'><?= "@" . htmlspecialchars($userInfo->username ?? "") ?></h1>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@ ob_start();
                 </div>
 
                 <div class="user-profile-bio">
-                    <p><?= htmlspecialchars($userInfo->bio) ?? "" ?></p>
+                    <p><?= htmlspecialchars($userInfo->bio ?? "") ?></p>
                     <span class="user-language-tag">
                         <?php
                         echo "<span id='languages'>Languages: </span>";
@@ -46,12 +46,12 @@ ob_start();
 
                 <div class="social-links">
                     <?php if ($userInfo->gitHub) {
-                        echo "<a href='<?=" .  htmlspecialchars($userInfo->gitHub) . "; ?>'><i class='fa-brands fa-2xl fa-github'></i></a>";
+                        echo "<a href='<?=" .  htmlspecialchars($userInfo->gitHub ?? "") . "; ?>'><i class='fa-brands fa-2xl fa-github'></i></a>";
                     }
                     ?>
 
                     <?php if ($userInfo->linkedIn) {
-                        echo "<a href='<?=" . $userInfo->linkedIn . "; ?>''><i class='fa-brands fa-2xl fa-linkedin'></i></a>";
+                        echo "<a href='<?=" . htmlspecialchars($userInfo->linkedIn ?? "") . "; ?>''><i class='fa-brands fa-2xl fa-linkedin'></i></a>";
                     }
                     ?>
                 </div>

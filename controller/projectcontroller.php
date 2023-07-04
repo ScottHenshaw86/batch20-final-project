@@ -1,16 +1,16 @@
 <?php
 require_once "./model/ProjectManager.php";
 
-function displayCards($offset = 0)
+function displayCards($limit = 4)
 {
     
     $projectManager = new ProjectManager();
     $carousels = $projectManager->getCarousels();
-    $projects = $projectManager->getCards($offset);
+    $projects = $projectManager->getCards($limit);
     $votes = $projectManager->getUserVotes();
     $projectCount = $projectManager->getCount();
     
-    if ($offset > 0) {
+    if ($limit > 4) {
         foreach($projects as $project) {
             require "./view/component/projectCard.php";
         }

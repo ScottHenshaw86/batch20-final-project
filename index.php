@@ -296,8 +296,8 @@ try {
             break;
 
         default:
-            $offset = $_GET['offset'] ?? 0;
-            displayCards($offset);
+            $limit = $_GET['limit'] ?? 4;
+            displayCards($limit);
             break;
     }
 } catch (Exception $e) {
