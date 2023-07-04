@@ -151,7 +151,7 @@ try {
 
             // FOR LOGGED IN USERS -- so that it doesn't take them to new page
         case "showUserPage":
-            displayCards();
+            displayCards(); // TODO: change to show all projects
             // showUserPage();
             break;
             // FOR EDITING A USER
@@ -281,8 +281,9 @@ try {
             break;
 
         case "filter":
+            $limit = $_GET['limit'] ?? 4;
             if (isset($_GET['filterOn'])) {
-                getFilteredProjects($_GET['filterOn']);
+                getFilteredProjects($_GET['filterOn'], $limit);
             } else {
                 throw new Exception("Missing filter value");
             }
@@ -295,7 +296,8 @@ try {
             break;
 
         default:
-            displayCards();
+            $offset = $_GET['offset'] ?? 0;
+            displayCards($offset);
             break;
     }
 } catch (Exception $e) {

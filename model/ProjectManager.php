@@ -3,9 +3,8 @@
 require_once "Manager.php";
 class ProjectManager extends Manager
 {
-    public function getCards()
+    public function getCards($offset)
     {
-        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] + 4 : 4;
 
         $db = $this->dbConnect();
         $sql = "SELECT u.id as user_id, u.profile_img, p.id as id, u.is_active, p.title, p.video_src, p.description, l.language_name
@@ -17,11 +16,11 @@ class ProjectManager extends Manager
             INNER JOIN language l
             ON plm.language_id = l.id
             WHERE p.is_active = 1
-           LIMIT :limit;";
+            LIMIT :offset , 4";
 
 
         $res = $db->prepare($sql);
-        $res->bindParam(":limit", $limit, PDO::PARAM_INT);
+        $res->bindParam("offset", $offset, PDO::PARAM_INT);
         $res->execute();
 
         $projects = [];
@@ -44,7 +43,6 @@ class ProjectManager extends Manager
             }
         }
         return $projects;
-        return $limit;
     }
 
     public function getUserProjects($user_id)
@@ -290,7 +288,7 @@ class ProjectManager extends Manager
         return $arr;
     }
 
-    public function getMostRecentProjects()
+    public function getMostRecentProjects($limit)
     {
         $db = $this->dbConnect();
         $sql = "SELECT u.id as user_id, u.profile_img, p.id as id, u.is_active, p.title, p.video_src, p.description, l.language_name
@@ -301,8 +299,9 @@ class ProjectManager extends Manager
             ON p.id = plm.project_id
             INNER JOIN language l
             ON plm.language_id = l.id
+            WHERE p.is_active = 1
             ORDER BY id DESC
-            LIMIT 4";
+            ";
 
         $res = $db->query($sql);
 
@@ -325,10 +324,10 @@ class ProjectManager extends Manager
                 unset($projects[$project_id]->language_name);
             }
         }
-        return $projects;
+        return array_slice($projects, 0, $limit);
     }
 
-    public function getMostLikedProjects()
+    public function getMostLikedProjects($limit)
     {
         $db = $this->dbConnect();
         $sql = "SELECT u.id as user_id, u.profile_img, p.id as id, u.is_active, p.title, p.video_src, p.description, l.language_name
@@ -339,7 +338,8 @@ class ProjectManager extends Manager
             ON p.id = plm.project_id
             INNER JOIN language l
             ON plm.language_id = l.id
-            LIMIT 4";
+            WHERE p.is_active = 1
+            ";
 
         $res = $db->query($sql);
 
@@ -367,7 +367,7 @@ class ProjectManager extends Manager
             return strcmp($second->sum, $first->sum);
         });
 
-        return $projects;
+        return array_slice($projects, 0, $limit);
     }
 
 
@@ -420,4 +420,32 @@ class ProjectManager extends Manager
         }
         return $projects;
     }
+
+    public function getCount()
+    {
+        $db = $this->dbConnect();
+
+
+        $arr = [];
+
+
+        $project_count = $db->query("SELECT COUNT(*) AS count FROM project WHERE project.is_active = 1");
+
+
+        $user_count = $db->query("SELECT COUNT(*) AS count FROM user");
+
+
+        $lang_count = $db->query("SELECT COUNT(*) as count FROM language");
+
+
+        array_push($arr, $project_count->fetch()->count);
+        array_push($arr, $user_count->fetch()->count);
+        array_push($arr, $lang_count->fetch()->count);
+
+
+
+
+        return $arr;
+    }
+
 }
